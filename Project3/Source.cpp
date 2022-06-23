@@ -7,10 +7,8 @@ int main()
 {
 	int sum = 0;
 	int points = 0;
-
-	system("chcp 1251>nul");
-	cout << "Игра 'Отгадай слово'\n";
-	cout << "Нажми кнопку для  для начала\n";
+	cout << "The game 'Guess the word'\n";
+	cout << "Press the button for to start\n";
 	string guess;
 	do
 	{
@@ -18,16 +16,16 @@ int main()
 		const int NUM_WORDS = 10;
 		string WORDS[NUM_WORDS][NUM_FIELDS] =
 		{
-			{"лев"," царь зверей "},
-			{"луна"," спутник земли "},
-			{"марс"," планета и шоколад имеет одно название "},
-			{"пегельман"," умный математик "},
-			{"байконур"," русский космодром "},
-			{"наса"," космическое агенство "},
-			{"венера"," 2 планета по удалённости от солнца "},
-			{"луноход"," советский лунный робот автомобиль "},
-			{"макарова", " модель пистолета "},
-			{"вовочка"," мальчик из анекдота "}
+			{"lion"," king of beasts"},
+			{"moon","earth satellite"},
+			{"mars","planet and chocolate have the same name"},
+			{"pegelman", "smart mathematician"},
+			{"baikonur","Russian cosmodrome"},
+			{"nasa","space agency"},
+			{"venus","the 2nd planet by distance from the sun"},
+			{"lunokhod","soviet lunar robot car"},
+			{"makarova", "pistol model"},
+			{"vovochka","the boy from the joke"}
 		};
 		int choice;
 		srand(time(0));
@@ -46,15 +44,15 @@ int main()
 			jumble[index_1] = jumble[index_2];
 			jumble[index_2] = temp;
 		}
-		cout << "\nРасшифруй слово: ";
-		cout << "\nНабери 'hint' если хочешь взять подсказку \n";
-		cout << "\n 'q' для выхода\n";
+		cout << "\nDecipher the word: ";
+		cout << "\nType 'hint' if you want to take a hint \n";
+		cout << "\n 'q' to exit\n";
 		cout << jumble;
 		cin >> guess;
 		if (guess == theWord)
 		{
-			cout << "Ты угадал!";
-			cout << " Заработано: ";
+			cout << "\nYou guessed it!\n";
+			cout << "\n Earned: ";
 			sum = sum + theWord.size();
 			cout << sum;
 		}
@@ -62,15 +60,15 @@ int main()
 		{
 			cout << theHint;
 			points += 2;
-			cout << "\nШтраф 2 бала за подсказку\n";
+			cout << "\nPenalty 2 points for a hint\n";
 			while (guess != theWord)
 			{
 				cin >> guess;
 				system("pause");
 				if (guess == theWord)
 				{
-					cout << "Ты угадал!";
-					cout << " Заработано: ";
+					cout << "You guessed it!";
+					cout << "  \nEarned:";
 					sum = sum + theWord.size();
 					cout << sum - points;
 				}
@@ -78,13 +76,13 @@ int main()
 		}
 		if (guess == "q")
 		{
-			cout << " Заработано " << sum - points << " баллов";
-			cout << "\n Пока ";
+			cout << "Earned: " << sum - points << " points";
+			cout << "\n Bye ";
 		}
 	} while (guess != "q");
-	cout << "\nЗаработано очков = " << "\n";
+	cout << "\nPoints earned = " << "\n";
 	cout << sum - points;
-	cout << "\nКонец игры";
+	cout << "\nGame over";
 	system("pause>nul");
 	return 0;
 }
